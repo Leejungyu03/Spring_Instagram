@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.timeline {
+	
+}
+.timeline .timeline-contents {
+	width: 40%;
+	height: 400px;
+	background-color: white;
+	border: solid 1px #DBDBDB;
+	margin-top: 30px;
+}

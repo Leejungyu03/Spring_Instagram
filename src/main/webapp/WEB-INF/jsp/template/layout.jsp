@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,12 +15,22 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/sign_up.css">
+<link rel="stylesheet" type="text/css" href="/css/sign_in.css">
+<link rel="stylesheet" type="text/css" href="/css/header.css">
+<link rel="stylesheet" type="text/css" href="/css/timeline.css">
 </head>
 <body>
 	<div id="wrap">
-		<header></header>
+		<c:if test="${viewName eq 'timeline/timeline'}">
+			<jsp:include page="../include/header.jsp"/>
+		</c:if>
+		
 		<jsp:include page="../${viewName}.jsp"/>
-		<footer></footer>
+			
+		<c:if test="${viewName eq 'timeline/timeline'}">
+			<jsp:include page="../include/footer.jsp"/>
+		</c:if>
 	</div>
 </body>
 </html>

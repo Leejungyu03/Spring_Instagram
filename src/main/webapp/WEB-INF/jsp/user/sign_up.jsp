@@ -26,7 +26,7 @@
 	</div>
 	<div class="login">
 			계정 있으신가요?
-		<a href="#">로그인</a>
+		<a href="/user/sign_in_view">로그인</a>
 	</div>
 </section>
 

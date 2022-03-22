@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+/* 로그인 화면 */
+.sign-in {
+	width: 70%;
+	height: 635px;
+	position: relative;
+	left: 25%;
+	top: 150px;
+}
+.sign-in .banner {
+	background-image: url("/images/sign_in/bannerFrame.png");
+	width: 500px;
+}
+#bannerImage {
+	animation:blink-effect 2.5s infinite alternate;
+	animation-timing-function: ease-in-out;
+}
+@keyframes blink-effect {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+.sign-in .banner .banner-image {
+	margin-left: 157px;
+	margin-top: 26px;
+}
+.sign-in .input {
+	width: 380px;
+	height: 350px;
+	margin-top: 50px;
+	background-color: white;
+	border: solid 1px #DBDBDB;
+	text-align: center;
+}
+.sign-in .input h1 {
+	margin-top: 40px;
+	margin-bottom: 70px;
+}
+.sign-in .input form #loginId {
+	width: 80%;
+	height: 40px;
+	background-color: #FAFAFA;
+	margin-top: 15px;
+	margin-left: 40px;
+	font-size: 15px;
+	border: solid 1px #DBDBDB;
+}
+.sign-in .input form #loginPassword {
+	width: 80%;
+	height: 40px;
+	background-color: #FAFAFA;
+	margin-top: 15px;
+	margin-left: 40px;
+	font-size: 15px;
+	border: solid 1px #DBDBDB;
+}
+.sign-in .input form .btn {
+	width: 80%;
+	height: 35px;
+	border: 0;
+	border-radius: 4px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.sign-in .no-account {
+	width: 380px;
+	height: 80px;
+	margin-top: 30px;
+	background-color: white;
+	border: solid 1px #DBDBDB;
+	text-align: center;
+}
+.sign-in .no-account div {
+	margin-top: 25px;
+}
