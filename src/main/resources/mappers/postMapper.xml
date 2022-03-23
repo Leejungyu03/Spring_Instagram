@@ -16,7 +16,7 @@
 			`post`
 	</select>
 	
-	<insert id="insertPost" >
+	<insert id="insertPost" parameterType="map">
 		INSERT INTO `post`
 		(
 			`userId`
@@ -29,9 +29,11 @@
 		VALUES
 		(
 			#{userId}
-			,#{userId}
-			,#{userId}
-			,#{userId}
+			,#{userName}
+			,#{content}
+			,#{imagePath}
+			,NOW()
+			,NOW()
 		)
 	</insert>
 </mapper>

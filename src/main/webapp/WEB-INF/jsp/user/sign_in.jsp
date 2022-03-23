@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <section class="sign-in d-flex">
 	<div class="banner">
-		<div class="banner-image"><img id="bannerImage" src="/images/sign_in/banner1.png"></div>
+		<div class="banner-image"><img id="bannerImage" src="/image/sign_in/banner1.png"></div>
 	</div>
 	<div>
 		<div class="input">
@@ -56,7 +56,7 @@
 		});
 		
 		
-		let bannerList = ["/images/sign_in/banner2.png", "/images/sign_in/banner3.png", "/images/sign_in/banner4.png", "/images/sign_in/banner1.png"];
+		let bannerList = ["/image/sign_in/banner2.png", "/image/sign_in/banner3.png", "/image/sign_in/banner4.png", "/image/sign_in/banner1.png"];
 		let currentimageIndex = 0;
 		
 		setInterval(function() {

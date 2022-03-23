@@ -5,9 +5,9 @@
 	<c:forEach items="${postList}" var="post">
 		<div class="timeline-contents">
 			<div class="timeline-head d-flex">
-				<div class="profile"><img src="/images/timeline/profile.png"></div> 
+				<div class="profile"><img src="/image/timeline/profile.png"></div> 
 				<div class="userName">${post.userName}</div>
-				<div class="option"><img src="/images/timeline/option.png"></div>
+				<div class="option"><img src="/image/timeline/option.png"></div>
 			</div>
 			<div class="timeline-image">
 				<img src="${post.imagePath}">

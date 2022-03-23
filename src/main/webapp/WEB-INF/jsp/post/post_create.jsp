@@ -9,14 +9,14 @@
 		</div>
 		<div class="create-image">
 			<div class="d-flex h-50">
-				<div><img class="previewImage" src="/images/post/image_icon.png"></div>
-				<div><img class="previewImage" src="/images/post/image_icon.png"></div>
-				<div><img class="previewImage" src="/images/post/image_icon.png"></div>
+				<div><img class="previewImage" src="/image/post/image_icon.png"></div>
+				<div><img class="previewImage" src="/image/post/image_icon.png"></div>
+				<div><img class="previewImage" src="/image/post/image_icon.png"></div>
 			</div>
 			<div class="d-flex h-50">
-				<div><img class="previewImage"src="/images/post/image_icon.png"></div>
-				<div><img class="previewImage" src="/images/post/image_icon.png"></div>
-				<div><img class="previewImage" src="/images/post/image_icon.png"></div>
+				<div><img class="previewImage"src="/image/post/image_icon.png"></div>
+				<div><img class="previewImage" src="/image/post/image_icon.png"></div>
+				<div><img class="previewImage" src="/image/post/image_icon.png"></div>
 			</div>
 		</div>
 		<div class="create-content">
@@ -27,7 +27,7 @@
 				</label>
 				<div id="previewBtn" class="btn btn-info">미리보기</div>
 				<input type="file" id="file" accept=".jpg, .jpeg, .png, .gif" multiple>
-				<img id="deleteFile" src="/images/post/delete.png">
+				<img id="deleteFile" src="/image/post/delete.png">
 			</div>
 		</div>
 	</div>
@@ -38,6 +38,7 @@
 		var uploadReady = false;
 		var deleteImg = false;
 		var files;
+		
 		
 		$('#previewBtn').on('click', function(e) {
 			files = $('#file')[0].files;
@@ -80,7 +81,6 @@
 			
 			let fileName = $('#file').val();
 			if (fileName != '') {
-				console.log(fileName.split(".")); // 파일 경로를 . 기준으로 잘라 배열에 저장한다.
 				let ext = fileName.split(".").pop().toLowerCase(); // 확장자를 뽑아내고 소문자로 변경
 				if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
 					alert("gif, png, jpg, jpeg 확장자만 업로드 할 수 있습니다.");
@@ -91,19 +91,25 @@
 			
 			let formData = new FormData();
 			formData.append("content", content);
-			formData.append("file", );
+			
+			let files = $('#file')[0].files;
+			/* for (let i = 0; i < files.length; i++) {
+				formData.append("file", files[i]);
+			} */
+			console.log(files)
+			formData.append("file", files);
 			
 			$.ajax({
 				type : "POST",
-				url = "/post/create",
+				url : "/post/create",
 				data : formData,
-				enctype : "multipartr/form-data",
+				enctype : "multipart/form-data",
 				processData : false,
 				contentType : false,
 				success : function(data) {
 					if (data.result == "success") {
 						alert("게시물이 추가되었습니다.");
-						location.href = "/timeline_timeline_view";
+						location.href = "/timeline/timeline_view";
 					} else {
 						alert(data.error_message);
 					}
@@ -115,7 +121,7 @@
 		});
 		
 		$('#deleteFile').on('click', function() {
-			let deleteImage = "/images/post/image_icon.png";
+			let deleteImage = "/image/post/image_icon.png";
 			console.dir($('.previewImage'))
 			for (let i = 0; i < 6; i++) {
 				$('.previewImage')[i].src = deleteImage;
