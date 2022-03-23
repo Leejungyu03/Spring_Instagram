@@ -1,12 +1,51 @@
 @charset "UTF-8";
 
 .timeline {
-	
+	/* none */
 }
 .timeline .timeline-contents {
 	width: 40%;
-	height: 400px;
 	background-color: white;
 	border: solid 1px #DBDBDB;
+	margin:0 auto;
 	margin-top: 30px;
+}
+.timeline .timeline-contents .timeline-head {
+	height: 60px;
+	border-bottom: 1px solid #DBDBDB;
+}
+.timeline .timeline-contents .timeline-head .profile {
+	width: 10%;
+}
+.timeline .timeline-contents .timeline-head .profile img {
+	width: 40px;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+.timeline .timeline-contents .timeline-head .userName {
+	width: 30%;
+	margin-top: 20px;
+	font-family: cursive;
+}
+.timeline .timeline-contents .timeline-head .option {
+	width: 60%;
+}
+.timeline .timeline-contents .timeline-head .option img {
+	width: 40px;
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.timeline .timeline-contents .timeline-image {
+	max-width: 759.19px;
+	text-align: center;
+	border-bottom: 1px solid #DBDBDB;
+}
+.timeline .timeline-contents .timeline-image img {
+	max-width: 759.19px;
+}
+.timeline .timeline-contents .timeline-comment {
+	height: 100px;
 }

@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+.post-create {
+	
+
+}
+.post-create .create-popup {
+	width: 50%;
+	height: 700px;
+	background-color: white;
+	margin-top: 80px;
+	border: 1px solid #DBDBDB;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+.post-create .create-popup .create-head {
+	height: 50px;
+	border-bottom: 1px solid #DBDBDB;
+}
+.post-create .create-popup .create-head #prevBtn {
+	width: 60px;
+	height: 30px;
+	line-height: 10px;
+	margin-top: 10px;
+	margin-left: 20px;
+	border-radius:6px;
+	color:#ffffff;
+	background-color:#f24537;
+}
+.post-create .create-popup .create-head #prevBtn:hover {
+	background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+	background-color:#c62d1f;
+}
+.post-create .create-popup .create-head #prevBtn:active {
+	position:relative;
+	top:1px;
+}
+.post-create .create-popup .create-head .head-text {
+	width: 80%;
+	font-size: 28px;
+	line-height: 50px;
+	text-align: center;
+}
+.post-create .create-popup .create-head #addBtn {
+	width: 60px;
+	height: 30px;
+	line-height: 10px;
+	margin-top: 10px;
+	background-color:#33bdef;
+	border-radius:6px;
+	color:#ffffff;
+}
+.post-create .create-popup .create-head #addBtn:hover {
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	background-color:#019ad2;
+}
+.post-create .create-popup .create-head #addBtn:active {
+	position:relative;
+	top:1px;
+}
+.post-create .create-popup .create-image {
+	height: 500px;
+	border-bottom: 1px solid #DBDBDB;
+}
+.post-create .create-popup .create-image div div {
+	width: 320px;
+	height: 200px;
+	margin: 20px 0 10px 0;
+	text-align: center;
+}
+.post-create .create-popup .create-image div div img {
+	max-width: 300px;
+	max-height: 200px;
+}
+.post-create .create-popup .create-content {
+	height: 100px;
+}
+.post-create .create-popup .create-content textarea {
+	width: 500px;
+	height: 70px;
+	font-size: 18px;
+	margin-top: 20px;
+	resize: none;
+}
+.post-create .create-popup .create-content .upload input[type=file] {
+	visibility: hidden;
+}
+.post-create .create-popup .create-content .upload label {
+	width: 60%;
+}
+.post-create .create-popup .create-content .upload label span {
+	width: 58%;
+	margin-left: 230px;
+}
+.post-create .create-popup .create-content .upload .btn-info {
+	width: 16%;
+}
+.post-create .create-popup .create-content .upload #deleteFile {
+	width: 100px;
+	position: relative;
+	bottom: 120px;
+	left: 500px;
+	cursor: pointer;
+}
+

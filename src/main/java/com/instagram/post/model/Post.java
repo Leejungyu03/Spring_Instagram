@@ -5,12 +5,19 @@ import java.util.Date;
 public class Post {
 	private int id;
 	private int userId;
+	private String userName;
 	private String content;
 	private String imagePath;
 	private Date createdAt;
 	private Date updatedAt;
 	
 	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	public int getId() {
 		return id;
 	}

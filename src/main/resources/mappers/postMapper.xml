@@ -8,10 +8,30 @@
 			`id`
 			,`userId`
 			,`content`
+			,`userName`
 			,`imagePath`
 			,`createdAt`
 			,`updatedAt`
 		FROM
 			`post`
 	</select>
+	
+	<insert id="insertPost" >
+		INSERT INTO `post`
+		(
+			`userId`
+			,`userName`
+			,`content`
+			,`imagePath`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUES
+		(
+			#{userId}
+			,#{userId}
+			,#{userId}
+			,#{userId}
+		)
+	</insert>
 </mapper>

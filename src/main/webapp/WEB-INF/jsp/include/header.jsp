@@ -9,7 +9,7 @@
 			<input type="text" class="search-text form-control">
 		</div>
 		<a href="/timeline/timeline_view" class="home"><img src="/images/timeline/home.png"></a>
-		<a href="#" class="add"><img src="/images/timeline/add.png"></a>
+		<a href="/post/post_create_view" class="add"><img src="/images/timeline/add.png"></a>
 		<c:choose>
 			<c:when test="${not empty userName}">
 				<span><b>${userName}</b>님 환영합니다 <a href="/user/sign_out">로그아웃</a></span>
