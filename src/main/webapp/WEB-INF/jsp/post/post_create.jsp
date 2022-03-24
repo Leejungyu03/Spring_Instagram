@@ -93,11 +93,9 @@
 			formData.append("content", content);
 			
 			let files = $('#file')[0].files;
-			/* for (let i = 0; i < files.length; i++) {
-				formData.append("file", files[i]);
-			} */
-			console.log(files)
-			formData.append("file", files);
+			for (let i = 0; i < files.length; i++) {
+				formData.append("files", files[i]);
+			}
 			
 			$.ajax({
 				type : "POST",
@@ -116,6 +114,7 @@
 				},
 				error : function(e) {
 					alert("게시물 추가에 실패했습니다. 관리자에게 문의주세요.");
+					console.dir(e)
 				}
 			});
 		});

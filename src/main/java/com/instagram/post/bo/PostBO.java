@@ -24,16 +24,16 @@ public class PostBO {
 		return postDAO.selectPostList();
 	}
 	
-	public int addPost(String loginId, int userId, String userName, String content, List<MultipartFile> file) {
+	public int addPost(String loginId, int userId, String userName, String content, MultipartFile file) {
 		
 		String imagePath = null;
-		if (file != null) {
-			try {
-				imagePath = fileManagerService.saveFile(loginId, file);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+//		if (file != null) {
+//			try {
+//				imagePath = fileManagerService.saveFile(loginId, file);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
 		
 		return postDAO.insertPost(userId, userName, content, imagePath);
 	}

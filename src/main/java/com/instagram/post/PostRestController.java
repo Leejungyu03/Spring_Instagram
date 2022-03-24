@@ -27,9 +27,10 @@ public class PostRestController {
 	@PostMapping("/create")
 	public Map<String, Object> create(
 			@RequestParam("content") String content,
-			@RequestParam("file") List<MultipartFile> file,
+			@RequestParam(value = "files", required = false) MultipartFile file,
 			HttpServletRequest request) {
 		
+		System.out.println(file);
 		HttpSession session = request.getSession();
 		int userId = (int) session.getAttribute("userId");
 		String userName = (String) session.getAttribute("userName");

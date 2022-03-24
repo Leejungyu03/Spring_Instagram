@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -24,14 +25,19 @@ public class FileManagerService {
 			return null;
 		}
 		
+		List<String> list = new ArrayList<>();
 		for (int i = 0; i < file.size(); i++) {
 			byte[] bytes = file.get(i).getBytes();
 			Path path = Paths.get(filePath + file.get(i).getOriginalFilename());
 			Files.write(path, bytes);
-			String 
+			String fileName = directoryName + file.get(i).getOriginalFilename();
+			list.add(fileName);
+		}
+		String result = null;
+		for (int i = 0; i < list.size(); i++) {
+			result = list.get(i) + ",";
 		}
 		
-		
-		return "/images/" + directoryName + file.getOriginalFilename();
+		return result;
 	}
 }
