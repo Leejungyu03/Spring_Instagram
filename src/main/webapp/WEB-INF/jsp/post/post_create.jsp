@@ -96,7 +96,7 @@
 			for (let i = 0; i < files.length; i++) {
 				formData.append("files", files[i]);
 			}
-			
+		
 			$.ajax({
 				type : "POST",
 				url : "/post/create",

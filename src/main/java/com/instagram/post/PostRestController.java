@@ -1,11 +1,9 @@
 package com.instagram.post;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.instagram.post.bo.PostBO;
 
@@ -27,16 +26,18 @@ public class PostRestController {
 	@PostMapping("/create")
 	public Map<String, Object> create(
 			@RequestParam("content") String content,
-			@RequestParam(value = "files", required = false) MultipartFile file,
-			HttpServletRequest request) {
+			MultipartHttpServletRequest request) {
 		
-		System.out.println(file);
+		
+		List<MultipartFile> files = request.getFiles("files");
+		System.out.println(files);
+		
 		HttpSession session = request.getSession();
 		int userId = (int) session.getAttribute("userId");
 		String userName = (String) session.getAttribute("userName");
 		String userLoginId = (String) session.getAttribute("userLoginId");
 		
-		int row = postBO.addPost(userLoginId, userId, userName, content, file);
+		int row = postBO.addPost(userLoginId, userId, userName, content, files);
 		
 		Map<String, Object> result = new HashMap<>();
 		result.put("result", "success");

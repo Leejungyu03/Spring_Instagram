@@ -36,12 +36,13 @@ header .search .search-text {
 	border-left: 0;
 }
 header .content .home img {
-	width: 60px;
+	width: 50px;
 	margin-left: 100px;
+	margin-top: 8px;
 }
 header .content .add img {
-	width: 45px;
-	margin-top: 8px;
+	width: 40px;
+	margin-top: 14px;
 	margin-left: 50px;
 }
 header .content span {

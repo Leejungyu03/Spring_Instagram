@@ -1,7 +1,5 @@
 package com.instagram.post;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.instagram.post.bo.PostBO;
-import com.instagram.post.model.Post;
 
 @RequestMapping("/post")
 @Controller
@@ -33,5 +30,14 @@ public class PostController {
 		model.addAttribute("viewName", "post/post_create");
 		
 		return "template/layout";
+	}
+	
+	@RequestMapping("/post_detail_view")
+	public String postDetailView(Model model) {
+		
+		model.addAttribute("viewName", "/post/post_detail");
+		
+		return "template/layout";
+		
 	}
 }

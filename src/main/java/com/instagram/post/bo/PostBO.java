@@ -2,6 +2,7 @@ package com.instagram.post.bo;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,16 +25,16 @@ public class PostBO {
 		return postDAO.selectPostList();
 	}
 	
-	public int addPost(String loginId, int userId, String userName, String content, MultipartFile file) {
+	public int addPost(String loginId, int userId, String userName, String content, List<MultipartFile> files) {
 		
 		String imagePath = null;
-//		if (file != null) {
-//			try {
-//				imagePath = fileManagerService.saveFile(loginId, file);
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		}
+		if (files != null) {
+			try {
+				imagePath = fileManagerService.saveFile(loginId, files);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		return postDAO.insertPost(userId, userName, content, imagePath);
 	}

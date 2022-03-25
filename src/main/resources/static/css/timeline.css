@@ -4,7 +4,7 @@
 	/* none */
 }
 .timeline .timeline-contents {
-	width: 40%;
+	width: 760px;
 	background-color: white;
 	border: solid 1px #DBDBDB;
 	margin:0 auto;
@@ -25,7 +25,6 @@
 .timeline .timeline-contents .timeline-head .userName {
 	width: 30%;
 	margin-top: 20px;
-	font-family: cursive;
 }
 .timeline .timeline-contents .timeline-head .option {
 	width: 60%;
@@ -40,12 +39,36 @@
 
 .timeline .timeline-contents .timeline-image {
 	max-width: 759.19px;
-	text-align: center;
-	border-bottom: 1px solid #DBDBDB;
+	
 }
 .timeline .timeline-contents .timeline-image img {
-	max-width: 759.19px;
+	width: 756px;
 }
-.timeline .timeline-contents .timeline-comment {
-	height: 100px;
+
+.timeline .timeline-contents .timeline-comment .no-like, .like {
+	width: 33px;
+	height: 33px;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.timeline .timeline-contents .timeline-comment .like-number {
+	width: 100px;
+	margin-left: 20px;
+	margin-top: 25px;
+	font-size: 16px;
+}
+.timeline .timeline-contents .timeline-comment .content {
+	margin-top: 15px;
+	margin-left: 20px;
+	font-size: 18px;
+}
+.timeline .timeline-contents .timeline-comment .time {
+	margin-left: 20px;
+	font-size: 14px;
+	color: gray;
+}
+.timeline .timeline-contents .timeline-comment .detail {
+	margin: 10px 0 20px 20px;
+	font-size: 16px;
+	text-decoration: underline;
 }
