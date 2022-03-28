@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.instagram.post.bo.PostBO;
+import com.instagram.post.model.Post;
 
 @RequestMapping("/post")
 @Controller
@@ -33,7 +35,17 @@ public class PostController {
 	}
 	
 	@RequestMapping("/post_detail_view")
-	public String postDetailView(Model model) {
+	public String postDetailView(Model model, 
+			@RequestParam("postId") int postId,
+			HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Integer userId = (Integer)session.getAttribute("userId");
+		
+		if (userId == null) {	// 비로그인 일때
+			return "redirect:/user/sign_in_view";
+		}
+		Post post = postBO.getPostListBypostId(postId);
+		model.addAttribute("post", post);
 		
 		model.addAttribute("viewName", "/post/post_detail");
 		

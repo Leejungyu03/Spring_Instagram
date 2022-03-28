@@ -16,6 +16,21 @@
 			`post`
 	</select>
 	
+	<select id="selectPostListBypostId" parameterType="int" resultType="com.instagram.post.model.Post">
+		SELECT
+			`id`
+			,`userId`
+			,`content`
+			,`userName`
+			,`imagePath`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`post`
+		WHERE
+			`id` = #{postId}
+	</select>
+	
 	<insert id="insertPost" parameterType="map">
 		INSERT INTO `post`
 		(

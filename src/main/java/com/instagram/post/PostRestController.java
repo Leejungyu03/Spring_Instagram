@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.instagram.post.bo.PostBO;
+import com.instagram.post.model.Post;
 
 @RequestMapping("/post")
 @RestController
@@ -30,7 +32,6 @@ public class PostRestController {
 		
 		
 		List<MultipartFile> files = request.getFiles("files");
-		System.out.println(files);
 		
 		HttpSession session = request.getSession();
 		int userId = (int) session.getAttribute("userId");
@@ -49,4 +50,5 @@ public class PostRestController {
 		
 		return result;
 	}
+	
 }

@@ -31,18 +31,19 @@
 				<div>
 					<div><b>ㅁㅁ</b> : ㅁㄴㅇㅁㅇㅁㄴㅇㅁㄴㅇ</div>
 				</div>
-				<div class="detail"><a class="text-dark" href="/post/post_detail_view?postId=${post.id}">게시물 자세히 보기</a></div>
+				<div class="detail"><a href="/post/post_detail_view?postId=${post.id}" class="text-dark" data-post-id = "${post.id}">게시물 자세히 보기</a></div>
 			</div>
 		</div>
 	</c:forEach>
 </section>
 
 <script>
+	var data = '<c:out value="${postList.get(1).content}"/>'
 	$(document).ready(function() {
+		
 		
 		// 좋아요를 눌렀을때
 		$('.no-like').on('click', function(e) {
-			
 			
 		});
 		// 좋아요를 해제했을 때
