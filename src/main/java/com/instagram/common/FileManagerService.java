@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class FileManagerService {
 	
-	public final static String FILE_UPLOAD_PATH = "C:\\Users\\DABISU\\Desktop\\이준규\\프로그래밍\\학원\\Spring_Project\\Instagram\\workspace\\images/";
+	public final static String FILE_UPLOAD_PATH = "D:\\이준규\\6_Spring_Project\\Instagram\\workspace\\images/";
 	
 	public String saveFile(String loginId, List<MultipartFile> files) throws IOException {
 		String directoryName = loginId + "_" + System.currentTimeMillis() + "/";

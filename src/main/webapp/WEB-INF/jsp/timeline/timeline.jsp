@@ -38,7 +38,6 @@
 </section>
 
 <script>
-	var data = '<c:out value="${postList.get(1).content}"/>'
 	$(document).ready(function() {
 		
 		
