@@ -10,6 +10,7 @@ import com.instagram.post.bo.PostBO;
 import com.instagram.post.model.Post;
 import com.instagram.timeline.model.CardView;
 import com.instagram.user.bo.UserBO;
+import com.instagram.user.model.User;
 
 @Service
 public class TimelineBO {
@@ -33,6 +34,9 @@ public class TimelineBO {
 			
 			// 글쓴이 정보
 			User user = userBO.getUserByUserId(post.getUserId());
+			
+			// 댓글들 정보
+			List<CommentView> commentList = commentBO.
 		}
 	}
 }

@@ -15,5 +15,7 @@ public class CommentBO {
 		return commentDAO.insertComment(userId, postId, comment);
 	}
 	
-	public List<Comment>generateCommentViewList
+	public List<Comment> generateCommentViewList(int postId) {
+		return commentDAO
+	}
 }
