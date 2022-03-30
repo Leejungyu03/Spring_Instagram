@@ -1,6 +1,8 @@
 package com.instagram.timeline.model;
 
-import com.instagram.comment.model.Comment;
+import java.util.List;
+
+import com.instagram.comment.model.CommentView;
 import com.instagram.post.model.Post;
 import com.instagram.user.model.User;
 
@@ -9,7 +11,7 @@ public class CardView {
 	private Post post;
 	
 	// 댓글들
-	private Comment comment;
+	private List<CommentView> commentList;
 	
 	// 좋아요 수
 	
@@ -27,12 +29,13 @@ public class CardView {
 		this.post = post;
 	}
 
-	public Comment getComment() {
-		return comment;
+
+	public List<CommentView> getCommentList() {
+		return commentList;
 	}
 
-	public void setComment(Comment comment) {
-		this.comment = comment;
+	public void setCommentList(List<CommentView> commentList) {
+		this.commentList = commentList;
 	}
 
 	public User getUser() {

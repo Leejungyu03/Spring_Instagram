@@ -8,6 +8,7 @@
  		(
 			`userId`
 			,`postId`
+			,`userName`
 			,`comment`
 			,`createdAt`
 			,`updatedAt`
@@ -16,9 +17,40 @@
  		(
  			#{userId}
  			,#{postId}
+ 			,#{userName}
  			,#{comment}
  			,NOW()
  			,NOW()
  		)
  	</insert>
+ 	
+ 	<select id="selectCommentListByPostId" parameterType="int" resultType="com.instagram.comment.model.Comment">
+ 		SELECT
+ 			`id`
+			,`userId`
+			,`postId`
+			,`userName`
+			,`comment`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`comment`
+		WHERE
+			`postId` = ${postId}
+ 	</select>
+ 	
+ 	<select id="selectRecentComment" parameterType="int" resultType="com.instagram.comment.model.Comment">
+ 		SELECT
+ 			`id`
+			,`userId`
+			,`postId`
+			,`userName`
+			,`comment`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`comment`
+		WHERE
+			`postId` = ${postId}
+ 	</select>
  </mapper>

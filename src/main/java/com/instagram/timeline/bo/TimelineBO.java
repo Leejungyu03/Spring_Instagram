@@ -1,11 +1,13 @@
 package com.instagram.timeline.bo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.instagram.comment.bo.CommentBO;
+import com.instagram.comment.model.CommentView;
 import com.instagram.post.bo.PostBO;
 import com.instagram.post.model.Post;
 import com.instagram.timeline.model.CardView;
@@ -24,7 +26,10 @@ public class TimelineBO {
 	@Autowired
 	private CommentBO commentBO;
 	
-	private List<CardView> generateCardViewList(Integer userId) {
+	public List<CardView> generateCardViewList(Integer userId) {
+		List<CardView> cardViewList = new ArrayList<>();
+		
+		// 글 List 가져오기
 		List<Post> postList = postBO.getPostList();
 		for (Post post : postList) {
 			CardView card = new CardView();
@@ -34,9 +39,19 @@ public class TimelineBO {
 			
 			// 글쓴이 정보
 			User user = userBO.getUserByUserId(post.getUserId());
+			card.setUser(user);
 			
 			// 댓글들 정보
-			List<CommentView> commentList = commentBO.
+			List<CommentView> commentList = commentBO.generateCommentViewList(post.getId());
+			card.setCommentList(commentList);
+			
+			// 좋아요 카운트
+			
+			// 지금 좋아요 눌렀는지 여부
+			
+			cardViewList.add(card);
 		}
+		
+		return cardViewList;
 	}
 }

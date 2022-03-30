@@ -12,19 +12,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.instagram.post.bo.PostBO;
 import com.instagram.post.model.Post;
+import com.instagram.timeline.bo.TimelineBO;
+import com.instagram.timeline.model.CardView;
 
 @RequestMapping("/timeline")
 @Controller
 public class TimelineController {
 	
 	@Autowired
-	private PostBO postBO;
+	private TimelineBO timelineBO;
 	
 	@RequestMapping("/timeline_view")
 	public String timelineView(Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
 		
-		List<Post> postList = postBO.getPostList();
-		model.addAttribute("postList", postList);
+		Integer userId = (Integer) session.getAttribute("userId");
+		
+		List<CardView> cardViewList = timelineBO.generateCardViewList(userId);
+		
+		model.addAttribute("cardViewList", cardViewList);
 		model.addAttribute("viewName", "timeline/timeline");
 		
 		return "template/layout";

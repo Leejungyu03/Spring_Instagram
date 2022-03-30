@@ -30,8 +30,9 @@ public class CommentRestController {
 			HttpSession session) {
 		
 		int userId = (int) session.getAttribute("userId");
+		String userName = (String) session.getAttribute("userName");
 		
-		int row = commentBO.addComment(userId, postId, comment);
+		int row = commentBO.addComment(userId, userName, postId, comment);
 		
 		Map<String, Object> result = new HashMap<>();
 		if (row > 0) {

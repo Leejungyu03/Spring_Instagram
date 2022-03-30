@@ -7,11 +7,18 @@ public class Comment {
 	private int id;
 	private int userId;
 	private int postId;
+	private String userName;
 	private String comment;
 	private Date createdAt;
 	private Date updatedAt;
 	
 	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	public int getId() {
 		return id;
 	}

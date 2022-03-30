@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <section class="post-detail d-flex justify-content-center">
 	<div class="contents">
@@ -14,7 +15,28 @@
 				<div>${post.userName}</div>
 			</div>
 			<div class="comments">
-			
+				<c:forEach items="${commentList}" var="comment">
+					<div class="commentCard">
+						<div>
+							<img src="/image/timeline/profile.png">
+							<span class="userName">${comment.userName}</span>
+						</div>
+						<div class="commentText">${comment.comment}</div>
+						
+						<jsp:useBean id="nowDate" class="java.util.Date" />
+						<fmt:parseNumber value="${nowDate.time / (1000*60*60*24)}" var="today" integerOnly="true" scope="request"/>
+						<fmt:parseNumber value="${comment.createdAt.time / (1000*60*60*24)}" integerOnly="true" scope="request" var="commentDate"/>
+
+						<c:choose>
+							<c:when test="${(today - commentDate) eq 0}">
+								<div class="time">오늘</div>
+							</c:when>
+							<c:otherwise>
+								<div class="time">${today - commentDate}일 전</div>
+							</c:otherwise>
+						</c:choose>
+					</div>
+				</c:forEach>
 			</div>
 			<div class="addComment d-flex">
 				<input type="text" class="comment form-control" maxlength="20" placeholder="댓글을 입력하세요(최대20자)">
@@ -66,7 +88,7 @@
 				success : function(data) {
 					if (data.result == "success") {
 						alert("댓글이 추가되었습니다.");
-						href.reload();
+						location.reload();
 					} else {
 						alert(data.error_message)
 					}
