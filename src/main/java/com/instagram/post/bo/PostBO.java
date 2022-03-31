@@ -42,5 +42,4 @@ public class PostBO {
 		
 		return postDAO.insertPost(userId, userName, content, imagePath);
 	}
-
 }

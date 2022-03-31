@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.instagram.like.dao.LikeDAO">
+ 	<select id="selectLikeCountByPostID" parameterType="int" resultType="int">
+ 		SELECT 
+ 			COUNT(1)
+ 		FROM
+ 			`like`
+ 		WHERE
+ 			`postId` = #{postId}
+ 	</select>
+ 	
+ 	<select id="selectLikeCountByPostIdOrUserId" parameterType="map" resultType="int">
+ 		SELECT 
+ 			COUNT(1)
+ 		FROM
+ 			`like`
+ 		WHERE
+ 				`postId` = #{postId}
+ 			<if test="userId != null">
+ 			AND 
+ 				`userId` = #{userId}
+ 			</if>
+ 	</select>
+ 
+ 	<insert id="insertLike" parameterType="map">
+		INSERT INTO `like`
+		(
+			`postId`
+			,`userId`
+			,`createdAt`
+		)
+		VALUES
+		(
+			#{postId}
+			,#{userId}
+			,NOW()
+		)		
+	</insert>
+	
+	<delete id="deleteLikeByPostIdUserId">
+	DELETE 
+	FROM 
+		`like`
+	WHERE
+		`postId` = #{postId}
+		<if test="userId != null">
+ 		AND 
+ 			`userId` = #{userId}
+ 		</if>
+		
+	</delete>
+ </mapper>

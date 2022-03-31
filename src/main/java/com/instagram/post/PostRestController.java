@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +23,7 @@ import com.instagram.post.model.Post;
 @RequestMapping("/post")
 @RestController
 public class PostRestController {
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	private PostBO postBO;
@@ -50,5 +53,4 @@ public class PostRestController {
 		
 		return result;
 	}
-	
 }

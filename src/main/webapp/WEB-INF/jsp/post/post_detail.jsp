@@ -44,6 +44,7 @@
 			</div>
 			<button class="next">next</button>
 			<button class="prev">prev</button>
+			<div><a href="/timeline/timeline_view">타임라인으로</a></div>
 		</div>
 	</div>
 </section>
@@ -71,7 +72,8 @@
 			$('.prev').hide()
 		}
 		
-		$('#addBtn').on('click', function() {
+		$('#addBtn').on('click', function(e) {
+			e.preventDefault();
 			let comment = $('.comment').val().trim()
 			if (comment == '') {
 				alert("댓글 내용을 작성해주세요");

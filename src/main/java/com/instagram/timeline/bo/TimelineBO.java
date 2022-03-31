@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.instagram.comment.bo.CommentBO;
 import com.instagram.comment.model.CommentView;
+import com.instagram.like.bo.LikeBO;
 import com.instagram.post.bo.PostBO;
 import com.instagram.post.model.Post;
 import com.instagram.timeline.model.CardView;
@@ -25,6 +26,9 @@ public class TimelineBO {
 	
 	@Autowired
 	private CommentBO commentBO;
+	
+	@Autowired
+	private LikeBO likeBO;
 	
 	public List<CardView> generateCardViewList(Integer userId) {
 		List<CardView> cardViewList = new ArrayList<>();
@@ -46,8 +50,10 @@ public class TimelineBO {
 			card.setCommentList(commentList);
 			
 			// 좋아요 카운트
+			card.setLikeCount(likeBO.getLikeCountByPostID(post.getId()));
 			
 			// 지금 좋아요 눌렀는지 여부
+			card.setFilledLike(likeBO.existLike(post.getId(), userId));
 			
 			cardViewList.add(card);
 		}
