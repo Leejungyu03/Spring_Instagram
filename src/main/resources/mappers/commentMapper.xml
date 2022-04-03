@@ -36,7 +36,7 @@
 		FROM
 			`comment`
 		WHERE
-			`postId` = ${postId}
+			`postId` = #{postId}
  	</select>
  	
  	<select id="selectRecentComment" parameterType="int" resultType="com.instagram.comment.model.Comment">
@@ -51,6 +51,6 @@
 		FROM
 			`comment`
 		WHERE
-			`postId` = ${postId}
+			`postId` = #{postId}
  	</select>
  </mapper>

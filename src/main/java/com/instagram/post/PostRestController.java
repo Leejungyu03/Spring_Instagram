@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -50,6 +51,21 @@ public class PostRestController {
 			result.put("error_message", "게시물 저장에 실패하였습니다.");
 		}
 		
+		
+		return result;
+	}
+	
+	@DeleteMapping("/delete")
+	public Map<String, Object> delete(
+			@RequestParam("postId") int postId) {
+		
+		int row = postBO.deletePost(postId);
+		
+		Map<String, Object> result = new HashMap<>();
+		result.put("result", "success");
+		if (row < 0) {
+			result.put("result", "error");
+		} 
 		
 		return result;
 	}

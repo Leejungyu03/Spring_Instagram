@@ -42,4 +42,8 @@ public class PostBO {
 		
 		return postDAO.insertPost(userId, userName, content, imagePath);
 	}
+	
+	public int deletePost(int postId) {
+		return postDAO.deletePost(postId);
+	}
 }

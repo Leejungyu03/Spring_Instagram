@@ -116,10 +116,15 @@
 	width: 65%;
 	height : 100%;
 	background-color: black;
+	position: relative;
 }
 .post-detail .contents .contents-images img {
-	width: 872px;
-	margin-top: 12%;
+	width: 100%;
+	max-height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 }
 .post-detail .contents .contents-comment {
 	width: 35%;

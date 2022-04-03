@@ -67,6 +67,11 @@
 	font-size: 14px;
 	color: gray;
 }
+.timeline .timeline-contents .timeline-comment .postComment {
+	margin-left: 20px;
+	margin-top: 10px;
+	font-size: 16px;
+}
 .timeline .timeline-contents .timeline-comment .detail {
 	margin: 10px 0 20px 20px;
 	font-size: 16px;
